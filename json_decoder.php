@@ -1,15 +1,39 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.11.1/dist/css/uikit.min.css" />
+<!-- UIkit JS -->
+<script src="https://cdn.jsdelivr.net/npm/uikit@3.11.1/dist/js/uikit.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/uikit@3.11.1/dist/js/uikit-icons.min.js"></script>
+<?php 
 
+$host = $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'];
+    if($host == '/test'){
+        ?>
+            <div class="uk-alert-danger" uk-alert>
+                <a class="uk-alert-close" uk-close></a>
+                <p><b>Test System</b></p>
+            </div>
+        <?php
+    }else{
+        ?>
+            <div class="uk-alert-primary" uk-alert>
+                <a class="uk-alert-close" uk-close></a>
+                <p><b>produktiv</b></p>
+            </div>
+        <?php
+    }
+
+?>
+
+<meta http-equiv="refresh" content="30">
 <div class="uk-container">
                     <table class="uk-table uk-table-divider">
     <thead>
         <tr>
             <th>Datum</th>
             <th>Latenz</th>
-            <th>Download byte</th>
-            <th>Upload byte</th>
+            <th>Download</th>
+            <th>Upload</th>
             <th>Internet Service Provider</th>
             <th>Externe IP</th>
             <th>Host</th>
@@ -51,12 +75,12 @@ if ($handle = opendir('log')) {
         <tr>
             <td><?php echo $obj_timestamp; ?></td>
             <td><?php echo $obj_latency; ?>ms</td>
-            <td><?php echo $obj_bandwidth_down; ?> byte</td>
-            <td><?php echo $obj_bandwidth_up; ?> byte</td>
+            <td><?php echo round(($obj_bandwidth_down/'125000'), 2); ?> Mb/s</td>
+            <td><?php echo round(($obj_bandwidth_up/'125000'), 2); ?> Mb/s</td>
             <td><?php echo $obj_isp; ?></td>
             <td><?php echo $obj_externalIp; ?></td>
             <td><?php echo $obj_host; ?></td>
-            <td><a href="<?php echo $obj_url; ?>">Ergebniss</a></td>
+            <td><a target="_blank" href="<?php echo $obj_url; ?>" >Ergebniss</a></td>
             <td><?php echo $obj_packetLoss; ?></td>
         </tr>
 
