@@ -1,29 +1,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.11.1/dist/css/uikit.min.css" />
-<!-- UIkit JS -->
-<script src="https://cdn.jsdelivr.net/npm/uikit@3.11.1/dist/js/uikit.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/uikit@3.11.1/dist/js/uikit-icons.min.js"></script>
-<?php 
 
-$host = $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'];
-    if($host == '/test'){
-        ?>
-            <div class="uk-alert-danger" uk-alert>
-                <a class="uk-alert-close" uk-close></a>
-                <p><b>Test System</b></p>
-            </div>
-        <?php
-    }else{
-        ?>
-            <div class="uk-alert-primary" uk-alert>
-                <a class="uk-alert-close" uk-close></a>
-                <p><b>produktiv</b></p>
-            </div>
-        <?php
-    }
-
-?>
 
 <meta http-equiv="refresh" content="30">
 <div class="uk-container">
